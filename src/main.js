@@ -1,7 +1,7 @@
 import { fetchImages } from './js/pixabay-api.js';
 import { clearGallery, renderGallery } from './js/render-functions.js';
 
-const form = document.querySelector('search-form');
+const form = document.querySelector('#search-form');
 const loader = document.querySelector('.loader');
 
 form.addEventListener('submit', async event => {
@@ -12,7 +12,7 @@ form.addEventListener('submit', async event => {
   if (!query) return;
 
   try {
-    loader.classList.remove('hidden');
+    loader.classList.remove('.hidden');
     clearGallery();
 
     const images = await fetchImages(query);
@@ -20,6 +20,6 @@ form.addEventListener('submit', async event => {
   } catch (error) {
     console.error('Error fetching images:', error);
   } finally {
-    loader.classList.add('hidden');
+    loader.classList.add('.hidden');
   }
 });
